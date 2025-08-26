@@ -7,6 +7,7 @@ import morgan from 'morgan' ;
 import { connectDB } from './config/database' ;
 import authRouters from './routers/authRouters' ;
 import userRouters from './routers/userRouters' ;
+import fileRouters from './routers/fileRouters' ;
 
 const server = express() ;
 
@@ -18,6 +19,7 @@ server.use(morgan('combined')) ;
 
 server.use('/api/auth' , authRouters) ;
 server.use('/api/user' , userRouters) ;
+server.use('/api/file' , fileRouters) ;
 
 dotenv.config() ;
 

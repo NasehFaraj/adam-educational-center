@@ -21,7 +21,10 @@ let addUser = async (req: Request , res: Response) : Promise<void> => {
 
         res.status(200).send({
             sucsse: true ,
-            massage: "user has been added"
+            massage: "user has been added" ,
+            data: {
+                id: id
+            }
         }) ;
 
     } catch (error) {

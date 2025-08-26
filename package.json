@@ -5,7 +5,7 @@
     "main": "server.js",
     "type": "module",
     "scripts": {
-        "dev": "nodemon -I --exec node --experimental-specifier-resolution=node  --loader ts-node/esm ./src/server.ts" ,
+        "dev": "nodemon -I --exec node --experimental-specifier-resolution=node  --loader ts-node/esm ./src/server.ts",
         "build": "tsc && node dist/postbuild.js",
         "start": "node dist/server.js",
         "db:up": "docker compose up -d",
@@ -30,7 +30,8 @@
         "helmet": "^8.1.0",
         "jsonwebtoken": "^9.0.2",
         "mongoose": "^8.18.0",
-        "morgan": "^1.10.1"
+        "morgan": "^1.10.1",
+        "multer": "^2.0.2"
     },
     "devDependencies": {
         "@types/cors": "^2.8.19",
@@ -38,6 +39,7 @@
         "@types/jsonwebtoken": "^9.0.10",
         "@types/morgan": "^1.9.10",
         "@types/ms": "^2.1.0",
+        "@types/multer": "^2.0.0",
         "@types/node": "^24.3.0",
         "ts-node-dev": "^2.0.0",
         "typescript": "^5.9.2"
