@@ -9,6 +9,8 @@ RUN npm install
 
 COPY . .
 
+RUN npm run db:up
+
 RUN npm run build
 
 EXPOSE 3000
