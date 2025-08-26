@@ -8,7 +8,7 @@ interface iUser {
     name: string ;
     motherName: string ;
     phoneNumber: string ;
-    photoID: string
+    photoID: string ;
     grade: string ;
     role: Role ;
     gender: Gender ;

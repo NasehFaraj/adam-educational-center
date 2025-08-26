@@ -21,14 +21,14 @@ let addUser = async (req: Request , res: Response) : Promise<void> => {
 
         res.status(200).send({
             sucsse: true ,
-            massege: "user has been added"
+            massage: "user has been added"
         }) ;
 
     } catch (error) {
         console.error('Login error:', error) ;
         res.status(500).send({
             sucsse: false ,
-            messege: "Login process failed" ,
+            message: "Login process failed" ,
             error: error
         }) ;
     }

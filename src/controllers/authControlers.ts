@@ -1,21 +1,42 @@
 import { Request , Response } from "express" ; 
 import jwt , { Algorithm , SignOptions , JwtPayload } from "jsonwebtoken" ;
+import { compare } from "bcryptjs" ; 
 import { StringValue } from "ms" ;
 
 import { User } from "../models/User";
+import { Role } from "../enums/Role";
 
 
 
-let login = async (req: Request , res: Response) : Promise<void> => {
+let login = async (req: Request , res: Response) : Promise<void> => { 
 
-    let { userID } = req.body ; 
+    let { userID , password } = req.body ; 
 
     try {
 
         const oldUser = await User.findById(userID) ;
         
         if (!oldUser) {
-            res.status(404).send({ message: "Email not registered" }) ;
+            res.status(404).send({ 
+                sucsse: false ,
+                message: "Email not registered" 
+            }) ;
+            return ;
+        }
+
+        if(!process.env.ADMIN_PASSWORD){
+            res.status(404).send({ 
+                sucsse: false ,
+                message: ".env.ADMIN_PASSWORD is not configured" 
+            }) ;
+            return ;
+        }
+
+        if(oldUser.role == Role.Admin && !compare(password , process.env.ADMIN_PASSWORD)){
+            res.status(400).send({ 
+                sucsse: false ,
+                message: "Invalid password" 
+            }) ;
             return ;
         }
 
@@ -37,6 +58,7 @@ let login = async (req: Request , res: Response) : Promise<void> => {
             name: oldUser.name ,
             role: oldUser.role ,
             grade: oldUser.grade ,
+            photoID: oldUser.photoID , 
             motherName: oldUser.motherName ,
             phoneNumber: oldUser.phoneNumber 
         } ;
@@ -45,7 +67,7 @@ let login = async (req: Request , res: Response) : Promise<void> => {
 
         res.status(200).send({
             sucsse: true ,
-            messege: "Login successful" ,
+            message: "Login successful" ,
             data: {
                 token: token
             }
@@ -55,7 +77,7 @@ let login = async (req: Request , res: Response) : Promise<void> => {
         console.error('Login error:', error) ;
         res.status(500).send({
             sucsse: false ,
-            messege: "Login process failed" ,
+            message: "Login process failed" ,
             error: error
         }) ;
     }

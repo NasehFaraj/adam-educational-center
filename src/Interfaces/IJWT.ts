@@ -6,6 +6,7 @@ declare module 'jsonwebtoken' {
         name: string ,
         role: string ,
         grade: string ,
+        photoID: string ,
         motherName: string ,
         phoneNumber: string 
     }
