@@ -1,0 +1,44 @@
+{
+    "name": "adam-educational-center",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "type": "module",
+    "scripts": {
+        "dev": "nodemon -I --exec node --experimental-specifier-resolution=node  --loader ts-node/esm ./src/server.ts",
+        "build": "tsc -p .",
+        "start": "node dist/index.js",
+        "db:up": "docker compose up -d",
+        "db:down": "docker compose down",
+        "db:logs": "docker compose logs -f mongo"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@gitlab.com/nasehfaraj-group/adam-educational-center.git"
+    },
+    "author": "nasehFaraj",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://gitlab.com/nasehfaraj-group/adam-educational-center/issues"
+    },
+    "homepage": "https://gitlab.com/nasehfaraj-group/adam-educational-center#readme",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^17.2.1",
+        "express": "^5.1.0",
+        "helmet": "^8.1.0",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^8.18.0",
+        "morgan": "^1.10.1"
+    },
+    "devDependencies": {
+        "@types/cors": "^2.8.19",
+        "@types/express": "^5.0.3",
+        "@types/jsonwebtoken": "^9.0.10",
+        "@types/morgan": "^1.9.10",
+        "@types/ms": "^2.1.0",
+        "@types/node": "^24.3.0",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^5.9.2"
+    }
+}
