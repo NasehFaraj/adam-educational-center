@@ -8,6 +8,7 @@ interface iUser {
     name: string ;
     motherName: string ;
     phoneNumber: string ;
+    photoID: string
     grade: string ;
     role: Role ;
     gender: Gender ;
@@ -31,6 +32,10 @@ const userSchema = new Schema<UserDocument>({
         default: Role.Student
     } ,
     phoneNumber: {
+        type: String ,
+        required: true
+    } ,
+    photoID: {
         type: String ,
         required: true
     } ,

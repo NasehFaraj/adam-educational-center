@@ -44,14 +44,18 @@ let login = async (req: Request , res: Response) : Promise<void> => {
         const token = jwt.sign(payload , process.env.JWT_SECRET , signOptions) ; 
 
         res.status(200).send({
-            message: "Login successful" ,
-            token:token 
+            sucsse: true ,
+            messege: "Login successful" ,
+            data: {
+                token: token
+            }
         });
 
     } catch (error) {
         console.error('Login error:', error) ;
         res.status(500).send({
-            message: "Login process failed" ,
+            sucsse: false ,
+            messege: "Login process failed" ,
             error: error
         }) ;
     }
