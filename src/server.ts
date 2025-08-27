@@ -11,6 +11,7 @@ import fileRouters from './routers/fileRouters' ;
 import galleryRouters from './routers/galleryRouters' ;
 import activityRouters from './routers/activityRouters' ;
 import homeworkRouters from './routers/homeworkRouters' ;
+import noteRouters from './routers/noteRouters' ;
 
 const server = express() ;
 
@@ -26,6 +27,7 @@ server.use('/api/file' , fileRouters) ;
 server.use('/api/gallery' , galleryRouters) ;
 server.use('/api/activity' , activityRouters) ;
 server.use('/api/homework' , homeworkRouters) ;
+server.use('/api/note' , noteRouters) ;
 
 dotenv.config() ;
 
