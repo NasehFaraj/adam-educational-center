@@ -10,6 +10,6 @@ let router = Router() ;
 
 router.put("/" , usersMiddleware([Role.Admin]) , userControlers.addUser) ; 
 
-router.get("/" , usersMiddleware([Role.Admin]) , userControlers.getUsers) ; 
+router.get("/all" , usersMiddleware([Role.Admin]) , userControlers.getUsers) ; 
 
 export default router ;

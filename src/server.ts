@@ -9,6 +9,7 @@ import authRouters from './routers/authRouters' ;
 import userRouters from './routers/userRouters' ;
 import fileRouters from './routers/fileRouters' ;
 import galleryRouters from './routers/galleryRouters' ;
+import activityRouters from './routers/activityRouters' ;
 
 const server = express() ;
 
@@ -22,6 +23,7 @@ server.use('/api/auth' , authRouters) ;
 server.use('/api/user' , userRouters) ;
 server.use('/api/file' , fileRouters) ;
 server.use('/api/gallery' , galleryRouters) ;
+server.use('/api/activity' , activityRouters) ;
 
 dotenv.config() ;
 

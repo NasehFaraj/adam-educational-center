@@ -2,7 +2,7 @@ import { Schema , model , HydratedDocument , Types } from "mongoose" ;
 import { Role } from "../enums/Role" ;
 import { Gender } from "../enums/Gender" ;
 
-interface iUser {
+interface IUser {
 
     _id: Types.ObjectId ;
     name: string ;
@@ -15,7 +15,7 @@ interface iUser {
 
 }
 
-type UserDocument = HydratedDocument<iUser>;
+type UserDocument = HydratedDocument<IUser>;
 
 const userSchema = new Schema<UserDocument>({
     name: {

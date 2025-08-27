@@ -1,7 +1,7 @@
 import { Schema , model , HydratedDocument , Types } from "mongoose" ;
 
 
-interface iGallery {
+interface IGallery {
 
     _id: Types.ObjectId ;
     userID: string ;
@@ -9,7 +9,7 @@ interface iGallery {
 
 }
 
-type GalleryDocument = HydratedDocument<iGallery>;
+type GalleryDocument = HydratedDocument<IGallery>;
 
 const gallerySchema = new Schema<GalleryDocument>({
 

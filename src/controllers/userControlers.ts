@@ -1,8 +1,6 @@
 import { Request , Response } from "express" ; 
 
 import { User } from "../models/User";
-import { Gender } from "../enums/Gender";
-
 
 
 let addUser = async (req: Request , res: Response) : Promise<void> => {
