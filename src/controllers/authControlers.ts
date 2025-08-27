@@ -14,7 +14,7 @@ let login = async (req: Request , res: Response) : Promise<void> => {
 
     try {
 
-        const oldUser = await User.findById(userID) ;
+        const oldUser = await User.findOne({userID}) ;
         
         if (!oldUser) {
             res.status(404).send({ 
@@ -25,11 +25,16 @@ let login = async (req: Request , res: Response) : Promise<void> => {
         }
 
         if(!process.env.ADMIN_PASSWORD){
-            res.status(404).send({ 
-                sucsse: false ,
-                message: ".env.ADMIN_PASSWORD is not configured" 
-            }) ;
-            return ;
+            throw new Error(".env.ADMIN_PASSWORD is not configured") ;
+        }
+
+
+        if(!process.env.EXPIRESIN){
+            throw new Error(".env.EXPIRESIN is not configured") ;
+        }
+
+        if(!process.env.JWT_SECRET){
+            throw new Error(".env.JWT_SECRET is not configured") ;
         }
 
         if(oldUser.role == Role.Admin && !compare(password , process.env.ADMIN_PASSWORD)){
@@ -40,13 +45,6 @@ let login = async (req: Request , res: Response) : Promise<void> => {
             return ;
         }
 
-        if(!process.env.EXPIRESIN){
-            throw new Error(".env.EXPIRESIN is not configured") ;
-        }
-
-        if(!process.env.JWT_SECRET){
-            throw new Error(".env.JWT_SECRET is not configured") ;
-        }
 
         const signOptions: SignOptions = {
             expiresIn: (process.env.EXPIRESIN as number | StringValue) || '1h' ,

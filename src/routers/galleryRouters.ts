@@ -10,6 +10,6 @@ let router = Router() ;
 
 router.put("/" , usersMiddleware([Role.Admin]) , galleryControlers.addPhoto) ; 
 
-router.get("/all" , usersMiddleware([Role.Student]) , galleryControlers.getMyGallery) ; 
+router.get("/all/my" , usersMiddleware([Role.Student]) , galleryControlers.getMyGallery) ; 
 
 export default router ;

@@ -12,9 +12,9 @@ let addUser = async (req: Request , res: Response) : Promise<void> => {
         let numberOfUser = (await User.countDocuments()) + 1 ;
 
         const currentYear = new Date().getFullYear();
-        let id = `${currentYear}${numberOfUser.toString().padStart(5 , '0')}` ; 
+        let userID = `${currentYear}${numberOfUser.toString().padStart(5 , '0')}` ; 
         
-        let newUser = new User({id , name , motherName , phone , photoID , grade , gender}) ;
+        let newUser = new User({userID , name , motherName , phone , photoID , grade , gender}) ;
 
         await newUser.save() ;
 
@@ -22,7 +22,7 @@ let addUser = async (req: Request , res: Response) : Promise<void> => {
             sucsse: true ,
             massage: "user has been added" ,
             data: {
-                id: id
+                userID
             }
         }) ;
 

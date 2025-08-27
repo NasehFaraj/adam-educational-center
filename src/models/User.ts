@@ -5,6 +5,7 @@ import { Gender } from "../enums/Gender" ;
 interface IUser {
 
     _id: Types.ObjectId ;
+    userID: string ;
     name: string ;
     motherName: string ;
     phone: string ;
@@ -19,6 +20,10 @@ type UserDocument = HydratedDocument<IUser>;
 
 const userSchema = new Schema<UserDocument>({
     name: {
+        type: String ,
+        required: true
+    } ,
+    userID: {
         type: String ,
         required: true
     } ,
