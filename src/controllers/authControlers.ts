@@ -60,7 +60,7 @@ let login = async (req: Request , res: Response) : Promise<void> => {
             grade: oldUser.grade ,
             photoID: oldUser.photoID , 
             motherName: oldUser.motherName ,
-            phoneNumber: oldUser.phoneNumber 
+            phoneNumber: oldUser.phone
         } ;
 
         const token = jwt.sign(payload , process.env.JWT_SECRET , signOptions) ; 

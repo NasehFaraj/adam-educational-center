@@ -1,21 +1,22 @@
 import { Request , Response } from "express" ; 
 
 import { User } from "../models/User";
+import { Gender } from "../enums/Gender";
 
 
 
 let addUser = async (req: Request , res: Response) : Promise<void> => {
 
-    let { name , motherName , phone , photoID , grade } = req.body ;
+    let { name , motherName , phone , photoID , grade , gender } = req.body ;
 
     try {
-        
+
         let numberOfUser = (await User.countDocuments()) + 1 ;
 
         const currentYear = new Date().getFullYear();
         let id = `${currentYear}${numberOfUser.toString().padStart(5 , '0')}` ; 
         
-        let newUser = new User({id , name , motherName , phone , photoID , grade}) ;
+        let newUser = new User({id , name , motherName , phone , photoID , grade , gender}) ;
 
         await newUser.save() ;
 

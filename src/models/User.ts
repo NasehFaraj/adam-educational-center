@@ -7,7 +7,7 @@ interface iUser {
     _id: Types.ObjectId ;
     name: string ;
     motherName: string ;
-    phoneNumber: string ;
+    phone: string ;
     photoID: string ;
     grade: string ;
     role: Role ;
@@ -31,7 +31,7 @@ const userSchema = new Schema<UserDocument>({
         enum: Role ,
         default: Role.Student
     } ,
-    phoneNumber: {
+    phone: {
         type: String ,
         required: true
     } ,
