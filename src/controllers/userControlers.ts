@@ -29,17 +29,48 @@ let addUser = async (req: Request , res: Response) : Promise<void> => {
         }) ;
 
     } catch (error) {
-        console.error('Login error:', error) ;
+        console.error('add user error:', error) ;
         res.status(500).send({
             sucsse: false ,
-            message: "Login process failed" ,
+            message: "add user process failed" ,
             error: error
         }) ;
     }
     
 } ;
 
+let getUsers = async (req: Request , res: Response) : Promise<void> => {
+
+    let { grade } = req.query ;
+
+    try {
+        
+        let oldUsers = await User.find({grade}) ;
+
+
+        res.status(200).send({
+            sucsse: true ,
+            message: "" ,
+            data: {
+                users: oldUsers 
+            }
+        })
+
+
+    } catch (error) {
+        console.error('get users error:', error) ;
+        res.status(500).send({
+            sucsse: false ,
+            message: "get users process failed" ,
+            error: error
+        }) ;
+    }
+
+
+} ;
+
 
 export default {
-    addUser
+    addUser ,
+    getUsers
 }
