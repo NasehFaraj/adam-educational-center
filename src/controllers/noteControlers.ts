@@ -1,11 +1,11 @@
 import { Request , Response } from "express" ; 
 
 
-import { Homework } from "../models/Homework";
+import { Note } from "../models/Note";
 
 
 
-let addHomework = async (req: Request , res: Response) : Promise<void> => {
+let addNote = async (req: Request , res: Response) : Promise<void> => {
 
     let { title , description , userIDs } = req.body ;
 
@@ -13,7 +13,7 @@ let addHomework = async (req: Request , res: Response) : Promise<void> => {
 
         for(let i = 0 ; i < userIDs.length ; i ++) {
 
-            let newPhoto = new Homework({ title , description , userId: userIDs[i] }) ;
+            let newPhoto = new Note({ title , description , userId: userIDs[i] }) ;
 
             await newPhoto.save() ;
         
@@ -21,45 +21,45 @@ let addHomework = async (req: Request , res: Response) : Promise<void> => {
 
         res.status(200).send({
             sucsse: true ,
-            massage: "homework has been added" ,
+            massage: "note has been added" ,
             data: {
                 
             }
         }) ;
 
     } catch (error) {
-        console.error('add homework error:', error) ;
+        console.error('add note error:', error) ;
         res.status(500).send({
             sucsse: false ,
-            message: "add homework process failed" ,
+            message: "add note process failed" ,
             error: error
         }) ;
     }
     
 } ;
 
-let getMyhomeworks = async (req: Request , res: Response) : Promise<void> => {
+let getMyNotes = async (req: Request , res: Response) : Promise<void> => {
 
     let { userID } = req.payload ;
 
     try {
         
-        let oldHomework = await Homework.find({userID}) ;
+        let oldNote = await Note.find({userID}) ;
 
         res.status(200).send({
             sucsse: true ,
             message: "" ,
             data: {
-                homeworks: oldHomework 
+                notes: oldNote 
             }
         })
 
 
     } catch (error) {
-        console.error('get homeworks error:', error) ;
+        console.error('get notes error:', error) ;
         res.status(500).send({
             sucsse: false ,
-            message: "get homeworks process failed" ,
+            message: "get notes process failed" ,
             error: error
         }) ;
     }
@@ -69,6 +69,6 @@ let getMyhomeworks = async (req: Request , res: Response) : Promise<void> => {
 
 
 export default {
-    addHomework ,
-    getMyhomeworks
+    addNote ,
+    getMyNotes
 }
