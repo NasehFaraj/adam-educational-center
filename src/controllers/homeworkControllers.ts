@@ -13,7 +13,7 @@ let addHomework = async (req: Request , res: Response) : Promise<void> => {
 
         for(let i = 0 ; i < userIDs.length ; i ++) {
 
-            let newPhoto = new Homework({ title , description , userId: userIDs[i] }) ;
+            let newPhoto = new Homework({ title , description , userID: userIDs[i] }) ;
 
             await newPhoto.save() ;
         

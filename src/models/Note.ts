@@ -8,6 +8,7 @@ interface INote {
     description: string ;
     photoID: string ;
     date: string ;
+    userID: string ;
 
 }
 
@@ -28,6 +29,10 @@ const noteSchema = new Schema<NoteDocument>({
         required: true 
     } ,
     date: {
+        type: String ,
+        required: true 
+    } ,
+    userID: {
         type: String ,
         required: true 
     }

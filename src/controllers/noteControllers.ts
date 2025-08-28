@@ -13,9 +13,9 @@ let addNote = async (req: Request , res: Response) : Promise<void> => {
 
         for(let i = 0 ; i < userIDs.length ; i ++) {
 
-            let newPhoto = new Note({ title , description , userId: userIDs[i] }) ;
+            let newNote = new Note({ title , description , userID: userIDs[i] }) ;
 
-            await newPhoto.save() ;
+            await newNote.save() ;
         
         }
 
