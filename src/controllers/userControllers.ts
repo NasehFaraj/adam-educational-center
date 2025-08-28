@@ -43,8 +43,7 @@ let getUsers = async (req: Request , res: Response) : Promise<void> => {
 
     try {
         
-        let oldUsers = await User.find({grade}) ;
-
+        let oldUsers = await User.find({grade}).sort({name: -1}) ;
 
         res.status(200).send({
             sucsse: true ,

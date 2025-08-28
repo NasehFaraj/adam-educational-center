@@ -44,7 +44,7 @@ let getMyhomeworks = async (req: Request , res: Response) : Promise<void> => {
 
     try {
         
-        let oldHomework = await Homework.find({userID}) ;
+        let oldHomework = await Homework.find({userID}).sort({createdAt: -1}) ;
 
         res.status(200).send({
             sucsse: true ,

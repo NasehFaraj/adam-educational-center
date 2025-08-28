@@ -10,7 +10,7 @@ let router = Router() ;
 
 router.put("/" , usersMiddleware([Role.Admin]) , activityControlers.addActivity) ; 
 
-router.get("/" , usersMiddleware([Role.Admin , Role.Student]) , activityControlers.addActivity) ; 
+router.get("/all" , usersMiddleware([Role.Student]) , activityControlers.getActivities) ; 
 
 
 export default router ;

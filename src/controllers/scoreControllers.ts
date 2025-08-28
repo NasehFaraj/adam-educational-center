@@ -40,7 +40,7 @@ let getMyScores = async (req: Request , res: Response) : Promise<void> => {
 
     try {
         
-        let oldScore = await Score.find({userID}) ;
+        let oldScore = await Score.find({userID}).sort({createdAt: -1}) ;
 
         res.status(200).send({
             sucsse: true ,

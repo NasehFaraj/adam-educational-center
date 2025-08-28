@@ -40,7 +40,7 @@ let getMyGallery = async (req: Request , res: Response) : Promise<void> => {
 
     try {
         
-        let oldGallery = await Gallery.find({userID}) ;
+        let oldGallery = await Gallery.find({userID}).sort({createdAt: -1}) ;
 
 
         res.status(200).send({
