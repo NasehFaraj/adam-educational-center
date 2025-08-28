@@ -1,6 +1,6 @@
 import { Schema , model , HydratedDocument , Types } from "mongoose" ;
-import { Role } from "../enums/Role" ;
-import { Gender } from "../enums/Gender" ;
+import { Role } from "../common/Role" ;
+import { Gender } from "../common/Gender" ;
 
 interface IUser {
 

@@ -4,7 +4,7 @@ import { compare } from "bcryptjs" ;
 import { StringValue } from "ms" ;
 
 import { User } from "../models/User";
-import { Role } from "../enums/Role";
+import { Role } from "../common/Role";
 
 
 

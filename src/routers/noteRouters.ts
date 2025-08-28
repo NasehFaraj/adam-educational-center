@@ -1,7 +1,7 @@
 import { Router } from "express" ;
 
-import noteControlers from "../controllers/noteControlers" ;
-import { Role } from "../enums/Role" ;
+import noteControlers from "../controllers/noteControllers" ;
+import { Role } from "../common/Role" ;
 import { usersMiddleware } from "../middleware/usersMiddleware" ;
 
 

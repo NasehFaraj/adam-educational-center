@@ -1,7 +1,7 @@
 import { Router } from "express" ;
 
-import galleryControlers from "../controllers/galleryControlers" ;
-import { Role } from "../enums/Role" ;
+import galleryControlers from "../controllers/galleryControllers" ;
+import { Role } from "../common/Role" ;
 import { usersMiddleware } from "../middleware/usersMiddleware" ;
 
 

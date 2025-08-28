@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import { Role } from '../enums/Role';
-import { payload } from '../Interfaces/IPayload';
+import { Role } from '../common/Role';
+import { payload } from '../common/IPayload';
 
 dotenv.config();
 

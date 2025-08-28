@@ -1,8 +1,8 @@
 import { Router } from "express" ;
 
-import activityControlers from "../controllers/activityControlers";
+import activityControlers from "../controllers/activityControllers";
 import { usersMiddleware } from "../middleware/usersMiddleware";
-import { Role } from "../enums/Role";
+import { Role } from "../common/Role";
 
 
 let router = Router() ;

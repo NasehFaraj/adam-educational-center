@@ -2,8 +2,8 @@ import { Router } from "express" ;
 import multer from "multer";
 
 
-import fileControlers from "../controllers/fileControlers";
-import { Role } from "../enums/Role";
+import fileControlers from "../controllers/fileControllers";
+import { Role } from "../common/Role";
 import { usersMiddleware } from "../middleware/usersMiddleware";
 
 const router = Router() ;
