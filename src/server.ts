@@ -8,10 +8,11 @@ import { connectDB } from './config/database' ;
 import authRouters from './routers/authRouters' ;
 import userRouters from './routers/userRouters' ;
 import fileRouters from './routers/fileRouters' ;
+import noteRouters from './routers/noteRouters' ;
+import scoreRouters from './routers/scoreRouters' ;
 import galleryRouters from './routers/galleryRouters' ;
 import activityRouters from './routers/activityRouters' ;
 import homeworkRouters from './routers/homeworkRouters' ;
-import noteRouters from './routers/noteRouters' ;
 
 const server = express() ;
 
@@ -24,10 +25,11 @@ server.use(morgan('combined')) ;
 server.use('/api/auth' , authRouters) ;
 server.use('/api/user' , userRouters) ;
 server.use('/api/file' , fileRouters) ;
+server.use('/api/note' , noteRouters) ;
+server.use('/api/score' , scoreRouters) ;
 server.use('/api/gallery' , galleryRouters) ;
 server.use('/api/activity' , activityRouters) ;
 server.use('/api/homework' , homeworkRouters) ;
-server.use('/api/note' , noteRouters) ;
 
 dotenv.config() ;
 

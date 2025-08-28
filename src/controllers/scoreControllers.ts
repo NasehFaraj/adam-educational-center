@@ -7,11 +7,11 @@ import { Score } from "../models/Score";
 
 let addScore = async (req: Request , res: Response) : Promise<void> => {
 
-    let { title , description , userID } = req.body ;
+    let { material , score , maxScore , userID } = req.body ;
 
     try {
 
-        let newScore = new Score({ title , description , userID }) ;
+        let newScore = new Score({ material , score , maxScore , userID }) ;
 
         await newScore.save() ;
         
