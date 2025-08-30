@@ -7,13 +7,13 @@ import { Note } from "../models/Note";
 
 let addNote = async (req: Request , res: Response) : Promise<void> => {
 
-    let { title , description , userIDs } = req.body ;
+    let { title , description , date , userIDs } = req.body ;
 
     try {
 
         for(let i = 0 ; i < userIDs.length ; i ++) {
 
-            let newNote = new Note({ title , description , userID: userIDs[i] }) ;
+            let newNote = new Note({ title , description , date , userID: userIDs[i] }) ;
 
             await newNote.save() ;
         
